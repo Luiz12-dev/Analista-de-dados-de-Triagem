@@ -1,2 +1,1 @@
-# Dependências do projeto (vazio pois utilizamos apenas a biblioteca padrão do Python)
-# Adicione bibliotecas como 'pandas' ou 'faker' caso o projeto evolua.
+
