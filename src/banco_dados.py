@@ -2,9 +2,6 @@ import sqlite3
 from typing import List, Dict, Any
 
 def inicializar_banco(nome_banco: str = "triagem_database.db") -> None:
-    """
-    Cria e configura o banco de dados inicial (pacientes_validados) com as colunas certas.
-    """
     with sqlite3.connect(nome_banco) as conexao:
         cursor = conexao.cursor()
         
@@ -23,10 +20,6 @@ def inicializar_banco(nome_banco: str = "triagem_database.db") -> None:
         conexao.commit()
 
 def salvar_dados_lote(dados: List[Dict[str, Any]], nome_banco: str = "triagem_database.db") -> None:
-    """
-    Recebe os dados limpos listados/estruturados, reseta a tabela (opcional, p/ PoC iterativo),
-    e salva-os no banco através de um INSERT estritamente em lote (batch API do SQLite).
-    """
     if not dados:
         print(" -> Nenhum dado para salvar.")
         return
@@ -48,9 +41,6 @@ def salvar_dados_lote(dados: List[Dict[str, Any]], nome_banco: str = "triagem_da
         conexao.commit()
 
 def exibir_relatorio_analitico(nome_banco: str = "triagem_database.db") -> None:
-    """
-    Executa a Query SQL analítica para média de tempo agrupado pelo nível de urgencia e exibe pro terminal. 
-    """
     with sqlite3.connect(nome_banco) as conexao:
         cursor = conexao.cursor()
         
